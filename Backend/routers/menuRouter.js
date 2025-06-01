@@ -15,7 +15,6 @@ router.post('/addmenu', async (req, res) => {
 
 // Get all menus
 router.get('/getallmenu', async (req, res) => {
-    console.log("hi from all menu");
     try {
         const menus = await Menu.find();
         res.status(200).json(menus);

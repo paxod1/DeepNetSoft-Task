@@ -43,13 +43,12 @@ function Home() {
 
             if (response.data) {
                 setAllMenuList(response.data);
-                if (response.data.length > 0) {
-                    fetchMenuItems(response.data[0]._id); // Use first menu by default
+                if (response.data.length > 1) {
+                    fetchMenuItems(response.data[1]._id);
                 }
             }
         } catch (error) {
             console.error("Error fetching menus:", error);
-            // Handle error state in your UI
         }
     };
 
@@ -63,7 +62,6 @@ function Home() {
             setItemList(response.data);
         } catch (error) {
             console.error(`Error fetching items for menu ${id}:`, error);
-            // Handle error state in your UI
         }
     };
 

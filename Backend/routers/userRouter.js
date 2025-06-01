@@ -15,7 +15,6 @@ router.post('/additem', async (req, res) => {
 
 // Get items for a specific menu
 router.get('/get-item-menu/:id', async (req, res) => {
-    console.log("from menu find id", req.params.id);
 
     try {
         const items = await Item.find({ menuId: req.params.id }).populate('menuId');
