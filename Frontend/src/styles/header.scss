@@ -1,0 +1,148 @@
+@mixin alignFlex($direction: row, $just: center, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $just;
+    align-items: $align;
+}
+
+// Navbar Styles
+.home_navbar_main {
+    height: 80px;
+    width: 100%;
+    background-color: black;
+    @include alignFlex();
+    
+
+    .home_navbar_inner_section {
+        height: 80px;
+        width: 85%;
+        display: flex;
+        position: relative;
+
+        .home_navbar_left {
+            flex: 1;
+            @include alignFlex(row, start, end);
+            position: relative;
+
+            .home_navbar_logo_side {
+                @include alignFlex(row, start, end);
+                font-size: 20px;
+                font-weight: 500;
+                position: absolute;
+                bottom: -30%;
+
+
+                .navbar_logo {
+                    height: 50px;
+                    width: 50px;
+                }
+
+                .navbar_text {
+                    color: white;
+                    margin-left: 10px;
+                    line-height: 25px;
+
+                    .navbar_log_firstline {
+                        @include alignFlex(row, start, center);
+
+                        .deep {
+                            color: blue;
+                            margin-right: 5px;
+                        }
+                    }
+
+                    .soft {
+                        color: rgb(154, 154, 154);
+                    }
+                }
+
+            }
+        }
+
+        .home_navbar_right {
+            flex: 0.6;
+            @include alignFlex(row, space-between, end);
+            color: #F5F5F5;
+
+            h5 {
+                font-weight: 400;
+                cursor: pointer;
+
+                &.active {
+                    color: blue;
+                }
+            }
+        }
+
+        .menu_toggle {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .dropdown_menu {
+            position: absolute;
+            right: 10px;
+            top: 70px;
+            background-color: #222;
+            border-radius: 5px;
+            padding: 10px;
+            width: 200px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            flex-direction: column;
+            text-align: center;
+            transition: 0.5s;
+
+            h5 {
+                padding: 10px;
+                cursor: pointer;
+                color: white;
+                text-align: start;
+
+                &:hover {
+                    background-color: blue;
+                    color: white;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+        .dropdown_menu.show {
+            display: flex;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .home_navbar_main .home_navbar_inner_section {
+        justify-content: center;
+        position: relative;
+
+        .home_navbar_left {
+            @include alignFlex(row, center, center);
+            position: absolute;
+            bottom: -30%;
+
+            .navbar_text {
+                display: none;
+            }
+        }
+
+        .home_navbar_right {
+            display: none;
+        }
+
+        .menu_toggle {
+            display: block;
+        }
+
+        .dropdown_menu.show {
+            display: flex;
+        }
+    }
+}

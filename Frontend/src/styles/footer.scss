@@ -1,0 +1,35 @@
+@mixin alignFlex($direction: row, $just: center, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $just;
+    align-items: $align;
+}
+
+
+// footer section style
+
+.footer_main {
+    width: 100%;
+    background-color: rgb(36, 36, 36);
+    color: #808080;
+    @include alignFlex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .footer_inner_section {
+        height: 100%;
+        width: 90%;
+        @include alignFlex(row, space-between, center)
+    }
+
+    @media screen and (max-width: 768px) {
+        .footer_inner_section {
+            height: 100%;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    }
+}

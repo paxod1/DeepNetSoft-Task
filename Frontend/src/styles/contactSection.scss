@@ -1,0 +1,153 @@
+@mixin alignFlex($direction: row, $just: center, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $just;
+    align-items: $align;
+}
+
+
+// contact section style
+.contact_section_main {
+    height: auto;
+    width: 100%;
+    background-color: black;
+    padding-top: 8%;
+    padding-bottom: 5%;
+    @include alignFlex();
+
+    .contact_section_inner_div {
+        height: 100%;
+        width: 90%;
+        @include alignFlex(row, space-between, center);
+
+        .contact_card_main {
+            height: 150px;
+            width: 30%;
+            background-color: #000;
+            border: 2px solid wheat;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            @include alignFlex(column, center, center);
+            transition: 0.3s ease-in-out;
+            position: relative;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            .contact_card_heading {
+                font-size: 18px;
+                font-weight: bold;
+                color: #0096FF;
+                margin-bottom: 10px;
+            }
+
+            .contact_icon {
+                font-size: 17px;
+                color: rgb(165, 165, 165);
+                margin-bottom: 10px;
+            }
+
+            .contact_details {
+                color: rgb(165, 165, 165);
+                font-size: 16px;
+            }
+
+            .contact_logo {
+                position: absolute;
+                top: -28%;
+                background-color: black;
+            }
+
+            .conact_text {
+                display: flex;
+                font-size: 40px;
+                font-weight: 600;
+                color: white;
+
+                .deep {
+                    color: rgb(24, 24, 248);
+                    margin-right: 5px;
+                }
+
+                .soft {
+                    color: rgb(132, 132, 132);
+                    margin-left: 5px;
+                }
+            }
+
+            .contact_icon_middle_box {
+                font-size: 17px;
+                color: rgb(165, 165, 165);
+                margin-top: 20px;
+                margin-bottom: -40px;
+            }
+
+            .contact_last_card {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+
+                .contact_iconlast_card-left {
+                    flex: .4;
+                    display: flex;
+                    justify-content: end;
+                }
+
+                .contact_details_last_card_right {
+                    flex: 1;
+                    display: flex;
+                    color: rgb(165, 165, 165);
+                    justify-content: start;
+                }
+            }
+        }
+    }
+
+    // contact section style responsive Styles
+    @media screen and (max-width: 768px) {
+        .contact_section_inner_div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .contact_card_main {
+                width: 90%;
+                margin: 10px;
+            }
+
+            .contact_card_main:nth-child(2) {
+                order: -1;
+            }
+        }
+    }
+}
+
+// footer section style
+
+.footer_main {
+    width: 100%;
+    background-color: rgb(36, 36, 36);
+    color: #808080;
+    @include alignFlex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .footer_inner_section {
+        height: 100%;
+        width: 90%;
+        @include alignFlex(row, space-between, center)
+    }
+
+    @media screen and (max-width: 768px) {
+        .footer_inner_section {
+            height: 100%;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    }
+}
