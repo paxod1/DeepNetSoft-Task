@@ -13,8 +13,7 @@ app.use(express.json());
 // CORS configuration
 const corsOptions = {
   origin: process.env.Frontend_url,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE']
 };
 app.use(cors(corsOptions));
 
