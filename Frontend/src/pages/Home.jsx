@@ -36,23 +36,34 @@ function Home() {
     };
 
     const fetchAllMenus = async () => {
-        const response = await getAllMenus();
-        console.log(response.data[1]._id);
+        try {
+            console.log("Fetching all menus...");
+            const response = await getAllMenus();
+            console.log("Menu response:", response);
 
-        setAllMenuList(response.data);
-        if (response.data?.length > 1) {
-            fetchMenuItems(response.data[1]._id);
+            if (response.data) {
+                setAllMenuList(response.data);
+                if (response.data.length > 0) {
+                    fetchMenuItems(response.data[0]._id); // Use first menu by default
+                }
+            }
+        } catch (error) {
+            console.error("Error fetching menus:", error);
+            // Handle error state in your UI
         }
     };
 
     const fetchMenuItems = async (id) => {
-        setMenuButtonClicked(id);
-        setMenuId(id);
         try {
+            console.log(`Fetching items for menu ${id}...`);
+            setMenuButtonClicked(id);
+            setMenuId(id);
             const response = await getMenuItems(id);
+            console.log("Menu items response:", response);
             setItemList(response.data);
         } catch (error) {
-            console.error(error);
+            console.error(`Error fetching items for menu ${id}:`, error);
+            // Handle error state in your UI
         }
     };
 

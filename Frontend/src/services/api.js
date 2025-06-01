@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const baseUrl = import.meta.env.VITE_BASE_URL;
-
+const baseUrl = 'http:localhost:8000';
+// import.meta.env.VITE_BASE_URL
 // Get all menu
 export const getAllMenus = () => axios.get(`${baseUrl}/menu/getallmenu`);
 

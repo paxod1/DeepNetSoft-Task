@@ -18,8 +18,9 @@ const corsOptions = {
 };
 app.use(cors());
 
+
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MongoUrl)
   .then(() => console.log(' MongoDB Connected'))
   .catch(err => console.error('DB connection error:', err));
 
